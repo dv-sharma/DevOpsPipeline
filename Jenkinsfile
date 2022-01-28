@@ -1,9 +1,4 @@
 node {
-    
-    
-    
-    
-    
     stage("Git Clone"){
 
         git branch: 'main', credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/dv-sharma/DevOps_Project-1.git'
@@ -13,7 +8,6 @@ node {
      sh '''mvn clean install
 '''
   }
-
 
     stage("Docker build"){
 
@@ -41,12 +35,8 @@ node {
                 }
                 catch(error){
                     sh "ssh ubuntu@172.31.15.234 kubectl create -f . "
-                }
-                
+                }                
             }
             }
             }
-            
-    // some block
-
     }
