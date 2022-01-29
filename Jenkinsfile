@@ -1,6 +1,6 @@
 node {
     stage("Git Clone"){
-
+            cleanWs()
         git branch: 'main', credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/dv-sharma/DevOps_Project-1.git'
     }
     stage('Maven Build') {
@@ -13,7 +13,7 @@ node {
         sh 'docker version'
         sh 'docker build -t pipeline-demo .'
         sh 'docker image list'
-        sh 'docker tag pipeline-demo 05061120/pipelinedemo:v1'
+        sh 'docker tag pipeline-demo 05061120/pipelinedemo:v3'
     }
     stage("Docker Login"){
         withCredentials([string(credentialsId: 'DOCKER_PASSWORD', variable: 'PASSWORD')]) {
@@ -21,7 +21,7 @@ node {
         }
     }
     stage("Pushing Image to Docker Hub"){
-        sh 'docker push  05061120/pipelinedemo:v1'
+        sh 'docker push  05061120/pipelinedemo:v3'
     }
     stage ("SSH kubernetes master & Deploy"){
         sshagent(['k9-master']) {
