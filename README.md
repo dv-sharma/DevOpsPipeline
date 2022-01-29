@@ -190,6 +190,7 @@ I am keeping this Project OPEN-SOURCE & will keep on updating this with any impr
 
 Also I will update more details regarding setting of infrastructure & other details about the files.
 
+Any ideas to make this project better is welcome, Contact details mentioned in my Profile readme.
 **THANKS**
 
 
